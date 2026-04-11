@@ -19,7 +19,6 @@ const AppRoutes = () => {
         <Route path="pos" element={<POS />} />
         <Route path="patients" element={<Patients />} />
         <Route path="sales-history" element={<SalesHistory />} />
-        <Route path="inventory" element={<Inventory />} />
         <Route path="suppliers" element={<Suppliers />} />
         <Route path="reports" element={<Reports />} />
         <Route path="settings" element={<Settings />} />
