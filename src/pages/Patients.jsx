@@ -139,48 +139,49 @@ const Patients = () => {
       <ModalForm isOpen={isModalOpen} onClose={closeModal} title={editingPatient ? 'Modifier le patient' : 'Ajouter un patient'} onSubmit={handleSubmit}>
         <div>
           <label className="label">Nom complet</label>
-          <input 
-            type="text" 
-            className="input" 
-            value={formData.fullName} 
-            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })} 
+          <input
+            type="text"
+            className="input"
+            value={formData.fullName}
+            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
             pattern="^[a-zA-ZÀ-ÿ\s\-']{2,}$"
             title="Le nom doit contenir au moins 2 caractères, lettres uniquement"
             minLength="2"
             maxLength="100"
-            required 
+            required
           />
         </div>
         <div>
           <label className="label">Téléphone</label>
-          <input 
-            type="tel" 
-            className="input" 
-            value={formData.phone} 
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })} 
-            pattern="^[\d\s\-\+\(\)]{10,}$"
-            title="Le téléphone doit contenir au moins 10 chiffres"
+          <input
+            type="tel"
+            className="input"
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            pattern="^(\+212|0)[67][0-9]{8}$"
+            title="Numéro marocain valide : 0612345678 ou +212612345678"
             inputMode="tel"
-            maxLength="20"
+            maxLength="13"
+            placeholder="0612345678"
           />
         </div>
         <div>
           <label className="label">Date de naissance</label>
-          <input 
-            type="date" 
-            className="input" 
-            value={formData.birthDate} 
+          <input
+            type="date"
+            className="input"
+            value={formData.birthDate}
             onChange={(e) => setFormData({ ...formData, birthDate: e.target.value })}
             max={new Date().toISOString().split('T')[0]}
           />
         </div>
         <div>
           <label className="label">Allergies</label>
-          <input 
-            type="text" 
-            className="input" 
-            value={formData.allergies} 
-            onChange={(e) => setFormData({ ...formData, allergies: e.target.value })} 
+          <input
+            type="text"
+            className="input"
+            value={formData.allergies}
+            onChange={(e) => setFormData({ ...formData, allergies: e.target.value })}
             pattern="^[a-zA-ZÀ-ÿ0-9\s\-\,\.]*$"
             title="Les allergies ne doivent contenir que des lettres, chiffres, virgules et points"
             maxLength="200"
@@ -188,11 +189,11 @@ const Patients = () => {
         </div>
         <div>
           <label className="label">Maladies chroniques</label>
-          <input 
-            type="text" 
-            className="input" 
-            value={formData.chronicDiseases} 
-            onChange={(e) => setFormData({ ...formData, chronicDiseases: e.target.value })} 
+          <input
+            type="text"
+            className="input"
+            value={formData.chronicDiseases}
+            onChange={(e) => setFormData({ ...formData, chronicDiseases: e.target.value })}
             pattern="^[a-zA-ZÀ-ÿ0-9\s\-\,\.]*$"
             title="Les maladies chroniques ne doivent contenir que des lettres, chiffres, virgules et points"
             maxLength="200"
@@ -200,11 +201,11 @@ const Patients = () => {
         </div>
         <div>
           <label className="label">Total dépensé</label>
-          <input 
-            type="number" 
-            className="input" 
-            value={formData.totalSpent} 
-            onChange={(e) => setFormData({ ...formData, totalSpent: parseFloat(e.target.value) || 0 })} 
+          <input
+            type="number"
+            className="input"
+            value={formData.totalSpent}
+            onChange={(e) => setFormData({ ...formData, totalSpent: parseFloat(e.target.value) || 0 })}
             step="0.01"
             min="0"
             title="Le montant total dépensé doit être un nombre positif"
@@ -221,7 +222,6 @@ const Patients = () => {
         message={`Êtes-vous sûr de vouloir supprimer ${deleteTarget?.fullName}?`}
       />
 
-      {/* Patient Details Modal - simplified */}
       {selectedPatient && (
         <ModalForm isOpen={!!selectedPatient} onClose={() => setSelectedPatient(null)} title="Détails du patient" onSubmit={(e) => e.preventDefault()}>
           <div className="space-y-2">
