@@ -26,9 +26,9 @@ const Dashboard = () => {
   }, [])
   
   const salesColumns = [
-    { header: 'Facture', accessor: 'Numéro de facture' },
+    { header: 'Facture', accessor: 'invoiceNumber' },
     { header: 'Date', accessor: 'date', render: (val) => formatDate(val) },
-    { header: 'Patiente', accessor: 'Nom du patient' },
+    { header: 'Patiente', accessor: 'patientName' },
     { header: 'Total', accessor: 'total', render: (val) => formatCurrency(val) },
   ]
   

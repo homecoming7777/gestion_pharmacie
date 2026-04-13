@@ -16,7 +16,7 @@ const Medicines = () => {
   const [medicines, setMedicines] = useState([])
   const [filteredMedicines, setFilteredMedicines] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
-  const [categoryFilter, setCategoryFilter] = useState('all')
+  const [categoryFilter, setCategoryFilter] = useState('tous')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingMedicine, setEditingMedicine] = useState(null)
   const [deleteTarget, setDeleteTarget] = useState(null)
