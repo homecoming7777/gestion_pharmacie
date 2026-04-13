@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import Inventory from '../pages/inventory'
 import Layout from '../components/layout/Layout'
 import Dashboard from '../pages/Dashboard'
 import Medicines from '../pages/Medicines'
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Dashboard />} />
         <Route path="medicines" element={<Medicines />} />
+        <Route path="inventory" element={<Inventory />} />
         <Route path="pos" element={<POS />} />
         <Route path="patients" element={<Patients />} />
         <Route path="sales-history" element={<SalesHistory />} />

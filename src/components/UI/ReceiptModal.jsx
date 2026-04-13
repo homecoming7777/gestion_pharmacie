@@ -25,7 +25,7 @@ const ReceiptModal = ({ isOpen, onClose, sale }) => {
             onClick={onClose}
           />
           <div
-            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-2xl shadow-xl z-50 max-h-[90vh] overflow-y-auto"
+            className="fixed top-1/2 left-1/2 transform text-black -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-2xl shadow-xl z-50 max-h-[90vh] overflow-y-auto"
           >
             <div className="p-4 border-b flex justify-between items-center">
               <h2 className="text-lg font-semibold">Sale Receipt</h2>
