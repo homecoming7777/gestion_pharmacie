@@ -14,7 +14,7 @@ import toast from 'react-hot-toast'
 const Inventory = () => {
   const [movements, setMovements] = useState([])
   const [filteredMovements, setFilteredMovements] = useState([])
-  const [movementType, setMovementType] = useState('all')
+  const [movementType, setMovementType] = useState('tous')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [medicines, setMedicines] = useState([])
   const [suppliers, setSuppliers] = useState([])
@@ -66,14 +66,12 @@ const Inventory = () => {
     { header: 'Type', accessor: 'type', render: (val) => <BadgeStatus status={val.toLowerCase()} /> },
     { header: 'Medicine', accessor: 'medicineId', render: (val) => medicines.find(m => m.id === val)?.name || val },
     { header: 'Quantity', accessor: 'quantity' },
-    { header: 'Old Stock', accessor: 'oldStock' },
-    { header: 'New Stock', accessor: 'newStock' },
     { header: 'Reason', accessor: 'reason' },
     { header: 'Date', accessor: 'date', render: (val) => formatDate(val) },
   ]
 
   const typeFilters = [
-    { label: 'All', value: 'all' },
+    { label: 'Tous', value: 'tous' },
     ...MOVEMENT_TYPES.map(t => ({ label: t, value: t })),
   ]
 
