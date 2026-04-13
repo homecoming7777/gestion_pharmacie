@@ -14,7 +14,7 @@ import toast from 'react-hot-toast'
 const Inventory = () => {
   const [movements, setMovements] = useState([])
   const [filteredMovements, setFilteredMovements] = useState([])
-  const [movementType, setMovementType] = useState('tous')
+  const [movementType, setMovementType] = useState('all')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [medicines, setMedicines] = useState([])
   const [suppliers, setSuppliers] = useState([])
