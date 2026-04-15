@@ -5,9 +5,6 @@ export const initializeSampleData = () => {
   const existingMedicines = storage.get(STORAGE_KEYS.MEDICINES)
   if (existingMedicines && existingMedicines.length > 0) return
 
-  // ===============================
-  // SUPPLIERS
-  // ===============================
   const suppliers = [
     {
       id: uuidv4(),
@@ -27,13 +24,82 @@ export const initializeSampleData = () => {
       address: 'Rabat, Maroc',
       createdAt: new Date().toISOString(),
     },
+    {
+      id: uuidv4(),
+      companyName: 'Atlas Pharma',
+      contactPerson: 'Youssef Alaoui',
+      phone: '+212634567890',
+      email: 'contact@atlaspharma.ma',
+      address: 'Marrakech, Maroc',
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: uuidv4(),
+      companyName: 'Sahara Médical',
+      contactPerson: 'Fatima Zahra',
+      phone: '+212645678901',
+      email: 'support@saharamedical.ma',
+      address: 'Agadir, Maroc',
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: uuidv4(),
+      companyName: 'Rif Healthcare',
+      contactPerson: 'Omar Idrissi',
+      phone: '+212656789012',
+      email: 'sales@rifhealth.ma',
+      address: 'Tanger, Maroc',
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: uuidv4(),
+      companyName: 'Casablanca Med',
+      contactPerson: 'Sara Bennani',
+      phone: '+212667890123',
+      email: 'info@casamed.ma',
+      address: 'Casablanca, Maroc',
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: uuidv4(),
+      companyName: 'Maghreb Pharma',
+      contactPerson: 'Hamza Bennis',
+      phone: '+212678901234',
+      email: 'hello@maghrebpharma.ma',
+      address: 'Fès, Maroc',
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: uuidv4(),
+      companyName: 'Nord Médic',
+      contactPerson: 'Imane Chraibi',
+      phone: '+212689012345',
+      email: 'contact@nordmedic.ma',
+      address: 'Oujda, Maroc',
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: uuidv4(),
+      companyName: 'BioCare Maroc',
+      contactPerson: 'Meryem Amrani',
+      phone: '+212690123456',
+      email: 'service@biocare.ma',
+      address: 'Meknès, Maroc',
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: uuidv4(),
+      companyName: 'Health Plus Maroc',
+      contactPerson: 'Mehdi Tazi',
+      phone: '+212601234567',
+      email: 'contact@healthplus.ma',
+      address: 'Kénitra, Maroc',
+      createdAt: new Date().toISOString(),
+    },
   ]
 
   storage.set(STORAGE_KEYS.SUPPLIERS, suppliers)
 
-  // ===============================
-  // MEDICINES
-  // ===============================
   const medicines = [
     {
       id: uuidv4(),
@@ -62,7 +128,7 @@ export const initializeSampleData = () => {
       alertThreshold: 10,
       expirationDate: '2027-10-10',
       batchNumber: 'LOT002',
-      supplier: suppliers[1].companyName,
+      supplier: suppliers[2].companyName,
       barcode: '6222222222222',
       prescriptionRequired: true,
       createdAt: new Date().toISOString(),
@@ -78,7 +144,7 @@ export const initializeSampleData = () => {
       alertThreshold: 30,
       expirationDate: '2028-05-15',
       batchNumber: 'LOT003',
-      supplier: suppliers[0].companyName,
+      supplier: suppliers[5].companyName,
       barcode: '6333333333333',
       prescriptionRequired: false,
       createdAt: new Date().toISOString(),
@@ -94,7 +160,7 @@ export const initializeSampleData = () => {
       alertThreshold: 8,
       expirationDate: '2027-08-20',
       batchNumber: 'LOT004',
-      supplier: suppliers[1].companyName,
+      supplier: suppliers[7].companyName,
       barcode: '6444444444444',
       prescriptionRequired: true,
       createdAt: new Date().toISOString(),
@@ -103,9 +169,6 @@ export const initializeSampleData = () => {
 
   storage.set(STORAGE_KEYS.MEDICINES, medicines)
 
-  // ===============================
-  // PATIENTS
-  // ===============================
   const names = [
     'Ahmed Benali',
     'Fatima Zahra',
@@ -170,7 +233,7 @@ export const initializeSampleData = () => {
   storage.set(STORAGE_KEYS.SALES, sales)
 
   // ===============================
-  // UPDATE PATIENT PURCHASE HISTORY
+  // UPDATE PATIENT HISTORY
   // ===============================
   const updatedPatients = patients.map((patient) => {
     const patientSales = sales.filter((sale) => sale.patientId === patient.id)
@@ -190,9 +253,6 @@ export const initializeSampleData = () => {
 
   storage.set(STORAGE_KEYS.PATIENTS, updatedPatients)
 
-  // ===============================
-  // INVENTORY MOVEMENTS
-  // ===============================
   const inventoryMovements = medicines.flatMap((medicine, index) => [
     {
       id: uuidv4(),

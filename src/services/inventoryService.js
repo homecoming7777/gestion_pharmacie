@@ -28,7 +28,7 @@ export const inventoryService = {
         break
     }
     
-    // Update medicine stock
+    
     medicineService.updateStock(movement.medicineId, movement.quantity, movement.type === 'IN' ? 'add' : 'subtract')
     
     const newMovement = {

@@ -1,21 +1,9 @@
-import React, { useState, useContext } from 'react'
-import { Menu, Search, Bell, User, Moon, Sun, LogOut } from 'lucide-react'
-import { ThemeContext } from '../../contexts/ThemeContext'
+import React from 'react'
+import { Menu } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import toast from 'react-hot-toast'
 
 const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
   const navigate = useNavigate()
-  const [searchQuery, setSearchQuery] = useState('')
-
-  const handleSearch = (e) => {
-    e.preventDefault()
-    if (searchQuery.trim()) {
-      navigate(`/medicines?search=${searchQuery}`)
-      setSearchQuery('')
-      toast.success(`Searching for: ${searchQuery}`)
-    }
-  }
 
   return (
     <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
@@ -27,27 +15,33 @@ const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
           >
             <Menu className="w-5 h-5" />
           </button>
-          
-          <form onSubmit={handleSearch} className="hidden md:flex items-center">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Recherche de médicaments, patients..."
-                className="pl-10 pr-4 py-2 w-80 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+
+          <div className="hidden md:flex items-center gap-4">
+            <div className="px-3 py-1 rounded-lg bg-yellow-100 text-yellow-700 text-sm font-medium">
+              Stock faible: 4
             </div>
-          </form>
+
+            <div className="px-3 py-1 rounded-lg bg-green-100 text-green-700 text-sm font-medium">
+              CA aujourd’hui: 2,450 DH
+            </div>
+
+            <button
+              onClick={() => navigate('/pos')}
+              className="px-4 py-2 rounded-xl bg-blue-600 text-white text-sm hover:bg-blue-700 transition"
+            >
+              Nouvelle vente
+            </button>
+          </div>
         </div>
-        
-        <div className="flex items-center gap-2">          
+
+        <div className="flex items-center gap-2">
           <div className="flex items-center gap-2 ml-2 pl-2 border-l border-gray-200 dark:border-gray-700">
             <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white font-semibold">
               A
             </div>
-            <span className="hidden md:inline text-sm font-medium">Utilisateur administrateur</span>
+            <span className="hidden md:inline text-sm font-medium text-gray-700 dark:text-gray-200">
+              Administrateur
+            </span>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Inventory from '../pages/inventory'
 import Layout from '../components/layout/Layout'

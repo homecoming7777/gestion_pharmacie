@@ -51,7 +51,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       >
         <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-            Pharmacie AB
+            Pharmacie Dawae
           </h1>
           <button 
             onClick={handleCloseMobile}

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { CheckCircle, XCircle, Info, AlertTriangle, X } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const Toast = ({ message, type = 'success', onClose }) => {
   useEffect(() => {

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { Search, Plus, Minus, Trash2, CreditCard, User, Receipt } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Search, Plus, Minus, Trash2 } from 'lucide-react'
 import { medicineService } from '../services/medicineService'
 import { patientService } from '../services/patientService'
 import { saleService } from '../services/saleService'
