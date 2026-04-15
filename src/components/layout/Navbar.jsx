@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Menu } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { dashboardService } from '../../services/dashboardService'
+import { formatCurrency } from '../../utils/formatters'
 
 const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
   const navigate = useNavigate()
+  const [stats, setStats] = useState({
+    lowStock: 0,
+    revenueToday: 0,
+  })
+
+  useEffect(() => {
+    loadNavbarStats()
+
+    const interval = setInterval(() => {
+      loadNavbarStats()
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const loadNavbarStats = () => {
+    const dashboardStats = dashboardService.getStats()
+
+    setStats({
+      lowStock: dashboardStats.lowStock || 0,
+      revenueToday: dashboardStats.revenueToday || 0,
+    })
+  }
 
   return (
     <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
@@ -18,11 +43,11 @@ const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
 
           <div className="hidden md:flex items-center gap-4">
             <div className="px-3 py-1 rounded-lg bg-yellow-100 text-yellow-700 text-sm font-medium">
-              Stock faible: 4
+              Stock faible: {stats.lowStock}
             </div>
 
             <div className="px-3 py-1 rounded-lg bg-green-100 text-green-700 text-sm font-medium">
-              CA aujourd’hui: 2,450 DH
+              CA aujourd’hui: {formatCurrency(stats.revenueToday)}
             </div>
 
             <button
