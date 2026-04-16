@@ -1,7 +1,7 @@
 import { storage, STORAGE_KEYS } from './localStorage'
 
 export const defaultSettings = {
-  pharmacyName: 'Pharmacie Centrale',
+  pharmacyName: 'Pharmacie Dawae',
   pharmacyAddress: 'Casablanca, Maroc',
   pharmacyPhone: '+212612345678',
   pharmacyEmail: 'contact@pharmacie.ma',
