@@ -32,3 +32,18 @@ export const settingsService = {
     window.dispatchEvent(new Event('settingsUpdated'))
   },
 }
+const USERS_KEY = 'users'
+
+export const userService = {
+  getAll: () => {
+    return storage.get(USERS_KEY) || []
+  },
+
+  update: (updatedUser) => {
+    const users = userService.getAll()
+    const newUsers = users.map(u =>
+      u.id === updatedUser.id ? updatedUser : u
+    )
+    storage.set(USERS_KEY, newUsers)
+  },
+}

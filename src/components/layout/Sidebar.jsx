@@ -10,6 +10,7 @@ import {
   Truck, 
   BarChart3, 
   Settings,
+  User,
   X
 } from 'lucide-react'
 import { motion } from 'framer-motion'
@@ -23,6 +24,7 @@ const navItems = [
   { path: '/inventory', icon: Package, label: 'Inventaire' },
   { path: '/suppliers', icon: Truck, label: 'Fournisseuses' },
   { path: '/reports', icon: BarChart3, label: 'Rapports' },
+  { path: '/profile', icon: User, label: 'Profile' },
   { path: '/settings', icon: Settings, label: 'Paramètres' },
 ]
 
