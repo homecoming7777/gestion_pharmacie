@@ -199,9 +199,6 @@ export const initializeSampleData = () => {
 
   storage.set(STORAGE_KEYS.PATIENTS, patients)
 
-  // ===============================
-  // SALES / POS
-  // ===============================
   const sales = patients.slice(0, 5).map((patient, index) => {
     const med = medicines[index % medicines.length]
     const quantity = index + 1
@@ -232,9 +229,6 @@ export const initializeSampleData = () => {
 
   storage.set(STORAGE_KEYS.SALES, sales)
 
-  // ===============================
-  // UPDATE PATIENT HISTORY
-  // ===============================
   const updatedPatients = patients.map((patient) => {
     const patientSales = sales.filter((sale) => sale.patientId === patient.id)
     const totalSpent = patientSales.reduce((sum, sale) => sum + sale.total, 0)

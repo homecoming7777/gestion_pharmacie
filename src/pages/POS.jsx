@@ -141,10 +141,8 @@ const POS = () => {
       status: 'completed',
     }
     
-    // Create sale record
     const newSale = saleService.create(sale)
     
-    // Update stock and create inventory movements
     cart.forEach(item => {
       medicineService.updateStock(item.id, item.quantity, 'subtract')
       inventoryService.createMovement({
@@ -156,7 +154,6 @@ const POS = () => {
       })
     })
     
-    // Update patient purchase history
     if (selectedPatient) {
       patientService.addPurchase(selectedPatient.id, newSale)
     }
